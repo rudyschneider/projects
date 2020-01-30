@@ -3,7 +3,7 @@ import time
 import os
 import random
 
-def eratos(n,s = None):
+def eratos(n,s = None): #used for password funtion only, uses eratosthenes
     if s is not None:
         a = []
         
@@ -51,8 +51,8 @@ def eratos(n,s = None):
         primes.remove(1)
         return primes
         
-def eratosthenes(n,s = None):
-    if s is not None:
+def eratosthenes(n,s = None): #sieves prime numbers using sieve of eratosthenes, outputs runtime as well
+    if s is not None: #for min/max
         start = time.time()
         a = []
         
@@ -80,7 +80,7 @@ def eratosthenes(n,s = None):
         end = time.time()
         print("Execution time: " + str(round(end - start, 3)))
         
-    else:
+    else: #uses just max
         start = time.time()
         a = []
         
@@ -105,8 +105,8 @@ def eratosthenes(n,s = None):
         end = time.time()
         print("Execution time: " + str(round(end - start, 3)))
         
-def sundaram(n,s = None):
-    if s is not None:
+def sundaram(n,s = None): #sieves prime numbers using sieve of eratosthenes, outputs runtime as well
+    if s is not None: #uses min/max
         start = time.time()
         n += 2
         s += 2
@@ -149,7 +149,7 @@ def sundaram(n,s = None):
         end = time.time()
         print("Execution time: " + str(round(end - start, 3)))
         
-    else:
+    else: #uses just max
         start = time.time()
         n += 2
         a = []
@@ -181,7 +181,7 @@ def sundaram(n,s = None):
         end = time.time()
         print("Execution time: " + str(round(end - start, 3)))
 
-def runProgram():
+def runProgram(): #outputs a 'secret password' to your desktop (2 random large primes which multiply together to 'gain acccess')
     p = eratos(100000,10000)
     l = len(p)
     rpone = p[random.randint(0,l)]
