@@ -187,11 +187,11 @@ def runProgram(): #outputs a 'secret password' to your desktop (2 random large p
     rpone = p[random.randint(0,l)]
     rptwo = p[random.randint(0,l)]
 
-    os.chdir("/Users/903610/Desktop/")
+    os.chdir("/Users/903610/Desktop/")#desktop directory
     n = random.randint(0,999)
     name = "Primes" + str(n)
     os.mkdir(name)
-    newdir = "/Users/903610/Desktop/" + name
+    newdir = "/Users/903610/Desktop/" + name #desktop directory
     os.chdir(newdir)
     fname = "output" + str(n) + ".txt"
     print("Index#:" + str(n))
