@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { Checkbox, Paper, FormControlLabel, Button, TextField} from "@material-ui/core";
+
 
 export default function App() {
   const [list, setList] = useState([]); //Need state for list of tasks
@@ -35,7 +37,7 @@ export default function App() {
     
 
     return (
-      <div
+      <Paper
         style={{
           border: "1px solid black",
           textAlign: "left",
@@ -57,12 +59,12 @@ export default function App() {
             <p style={{ margin: 5 }}>Due: {item.Date}</p>
           </>
         )}
-        ​
-        <button onClick={handleCheckOff} style={{ marginBottom: "10px" }}>
-          Check off
-        </button>
-        <button onClick={handleDelete}>Delete</button>
-      </div>
+        ​<FormControlLabel
+          control={<Checkbox value="checkedA" label="Check off" onClick={handleCheckOff} style={{ marginBottom: "10px" }} />}
+          label="Check off"
+        />
+        <Button variant="contained" onClick={handleDelete}>Delete</Button>
+      </Paper>
     );
   };
   return (
@@ -72,29 +74,29 @@ export default function App() {
       <div style={{ display: "flex", flexDirection: "column", width: "300px" }}>
         <label style={{ marginBottom: "10px" }}>
           {"Title: "}
-          <input
+          <TextField id="outlined-basic" label="Name of task" variant="outlined"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
         </label>
         <label style={{ marginBottom: "10px" }}>
           {"Description: "}
-          <input
+          <TextField id="outlined-basic" label="Description of task" variant="outlined"
             value={desc}
             onChange={(e) => setDesc(e.target.value)}
           />
         </label>
         <label style={{ marginBottom: "10px" }}>
           {"Due Date: "}
-          <input
+          <TextField id="outlined-basic" label="Due date of task" variant="outlined"
             value={date}
             onChange={(e) => setDate(e.target.value)}
           />
         </label>
       </div>
-      <button onClick={handleAdd} style={{ marginBottom: "20px" }}>
+      <Button variant="contained" color="primary" onClick={handleAdd} style={{ marginBottom: "20px" }}>
         Add Todo Item
-      </button>
+      </Button>
       ​
       {list.map((item) => (
         <TodoItem item={item} />
